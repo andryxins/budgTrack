@@ -1,0 +1,10 @@
+@media (min-width: 320px) {
+  .background {
+    margin: 0 auto;
+    background-color: #def7fe;
+    min-width: 320px;
+    height: 812px;
+    text-align: center;
+    overflow: hidden;
+  }
+}

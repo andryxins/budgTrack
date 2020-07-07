@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const HomePage = () => {
-  return <p>HomePage</p>;
-};
+export default class HomePage extends Component {
+  componentDidMount() {
+    const { user, getAllTransactions, history } = this.props;
+    if (!user) return history.replace('/authorisation');
 
-export default HomePage;
+    getAllTransactions();
+  }
+  render() {
+    return <p>HomePage</p>;
+  }
+}
