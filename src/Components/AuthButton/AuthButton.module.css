@@ -1,12 +1,13 @@
 .button {
   width: 100%;
-  border-radius: 10px;
-  font-size: 24px;
-  line-height: 33px;
-  padding: 8px;
+  border-radius: 0.63rem;
+  font-size: 2.95vh;
+  line-height: 4.06vh;
+  padding: 0.98vh;
   z-index: 10;
   text-transform: uppercase;
   color: #2dba33;
   font-weight: 900;
   background-color: #ffffff;
+  border: none;
 }

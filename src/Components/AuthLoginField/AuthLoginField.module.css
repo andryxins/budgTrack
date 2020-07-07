@@ -3,26 +3,27 @@
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 13px;
+  margin-bottom: 1.6vh;
+  z-index: 99999;
 }
 
 .loginField,
 .loginLabel,
 .loginField::placeholder {
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 0.5px;
+  font-size: 1.97vh;
+  line-height: 2.72vh;
+  letter-spacing: 0.03rem;
 }
 
 .loginField {
-  height: 48px;
+  height: 5.9vh;
   border: 1px solid transparent;
-  border-radius: 10px;
-  padding: 14px 20px;
+  border-radius: 0.63rem;
+  padding: 1.73vh 2.46vh;
 }
 
 .loginLabel {
-  padding-left: 10px;
+  padding-left: 0.63rem;
   align-self: flex-start;
 }
 

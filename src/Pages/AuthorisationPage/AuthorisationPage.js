@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import AuthorisationForm from '../../Components/AuthorisationForm/AuthorisationFormContainer';
 import AuthLayout from '../../Components/AuthLayout/AuthLayout';
-import Logo from '../../Components/Logo/Logo';
 import Styles from './AuthorisationPage.module.css';
+import { Link } from 'react-router-dom';
 
-class AuthorisationPage extends Component {
-  componentDidMount() {
-    const { user, history } = this.props;
-    if (user) history.replace('/');
-  }
+const AuthorisationPage = ({ history, user }) => {
+  useEffect(() => {
+    if (user) return history.replace('/');
+  }, [user, history]);
 
-  componentDidUpdate() {
-    const { user, history } = this.props;
-    if (user) history.replace('/');
-  }
-  render() {
-    return (
-      <main>
-        <AuthLayout>
+  return (
+    <main>
+      <AuthLayout>
+        <div className={Styles.authForm}>
           <AuthorisationForm />
-        </AuthLayout>
-      </main>
-    );
-  }
-}
+        </div>
+        <div className={Styles.goTo}>
+          Do not have account?
+          <Link to={'/registration'}>Register</Link>
+        </div>
+      </AuthLayout>
+    </main>
+  );
+};
 
 export default AuthorisationPage;

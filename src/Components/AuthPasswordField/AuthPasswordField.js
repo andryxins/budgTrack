@@ -17,7 +17,9 @@ const validationSchema = {
 const AuthPasswordField = ({ register }) => {
   const [isPassVisible, setIsPassVisible] = useState(false);
 
-  const handleChangeVisibility = () => {};
+  const handleChangeVisibility = () => {
+    setIsPassVisible(!isPassVisible);
+  };
 
   return (
     <div className={Styles.container}>
@@ -25,6 +27,7 @@ const AuthPasswordField = ({ register }) => {
         Password:
       </label>
       <input
+        type={isPassVisible ? 'text' : 'password'}
         placeholder="**********"
         id="password"
         name="password"
@@ -32,7 +35,10 @@ const AuthPasswordField = ({ register }) => {
         ref={register(validationSchema)}
       />
       <div className={Styles.eyesBlockIcon}>
-        <AuthPasswordEyesBlock />
+        <AuthPasswordEyesBlock
+          toggled={isPassVisible}
+          handleToggle={handleChangeVisibility}
+        />
       </div>
     </div>
   );

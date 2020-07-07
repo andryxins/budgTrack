@@ -7,16 +7,18 @@ import BigCircleDecoration from '../BigCircleDecoration/BigCircleDecoration';
 
 const AuthLayout = ({ children }) => {
   return (
-    <BackgroundAndContainer className={Styles.container}>
-      <div className={Styles.trippleCirclesDecoration}>
-        <TrippleCirclesDecoration />
-      </div>
-      <div className={Styles.logo}>
-        <Logo />
-      </div>
-      <div className={Styles.form}>{children}</div>
-      <div className={Styles.bigCircleDecoration}>
-        <BigCircleDecoration />
+    <BackgroundAndContainer>
+      <div className={Styles.container}>
+        <div className={Styles.trippleCirclesDecoration}>
+          <TrippleCirclesDecoration />
+        </div>
+        <div className={Styles.logo}>
+          <Logo />
+        </div>
+        <div className={Styles.childrenContent}>{children}</div>
+        <div className={Styles.bigCircleDecoration}>
+          <BigCircleDecoration />
+        </div>
       </div>
     </BackgroundAndContainer>
   );
