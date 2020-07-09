@@ -5,23 +5,21 @@ import BackgroundAndContainer from '../BackgroundAndContainer/BackgroundAndConta
 import TrippleCirclesDecoration from '../TrippleCirclesDecoration/TrippleCirclesDecoration';
 import BigCircleDecoration from '../BigCircleDecoration/BigCircleDecoration';
 
-const AuthLayout = ({ children }) => {
-  return (
-    <BackgroundAndContainer>
-      <div className={Styles.container}>
-        <div className={Styles.trippleCirclesDecoration}>
-          <TrippleCirclesDecoration />
-        </div>
-        <div className={Styles.logo}>
-          <Logo />
-        </div>
-        <div className={Styles.childrenContent}>{children}</div>
-        <div className={Styles.bigCircleDecoration}>
-          <BigCircleDecoration />
-        </div>
+const AuthLayout = ({ children }) => (
+  <BackgroundAndContainer>
+    <div className={Styles.container}>
+      <div className={Styles.trippleCirclesDecoration}>
+        <TrippleCirclesDecoration />
       </div>
-    </BackgroundAndContainer>
-  );
-};
+      <div className={Styles.logo}>
+        <Logo />
+      </div>
+      <div className={Styles.childrenContent}>{children}</div>
+      <div className={Styles.bigCircleDecoration}>
+        <BigCircleDecoration />
+      </div>
+    </div>
+  </BackgroundAndContainer>
+);
 
 export default AuthLayout;

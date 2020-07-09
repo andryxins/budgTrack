@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import Styles from './AuthorisationForm.module.css';
+import Styles from './RegistrationForm.module.css';
 import AuthLoginField from '../AuthLoginField/AuthLoginField';
 import AuthPasswordField from '../AuthPasswordField/AuthPasswordField';
 import AuthButton from '../AuthButton/AuthButton';
 
-const AuthorisationForm = ({ onlogIn }) => {
+const RegistrationForm = ({ onlogIn }) => {
   const { register, handleSubmit, errors } = useForm();
 
   return (
@@ -18,9 +18,13 @@ const AuthorisationForm = ({ onlogIn }) => {
         <AuthPasswordField register={register} />
       </div>
 
-      <AuthButton title="LogIn" />
+      <div className={Styles.passwordFieldRepeat}>
+        <AuthPasswordField title="Confirm password" register={register} />
+      </div>
+
+      <AuthButton title="Register" />
     </form>
   );
 };
 
-export default AuthorisationForm;
+export default RegistrationForm;

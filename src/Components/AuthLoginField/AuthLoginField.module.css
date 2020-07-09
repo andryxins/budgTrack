@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 1.6vh;
+
   z-index: 99999;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .loginField {
-  height: 5.9vh;
+  height: 6.15vh;
   border: 1px solid transparent;
   border-radius: 0.63rem;
   padding: 1.73vh 2.46vh;

@@ -14,7 +14,7 @@ const validationSchema = {
   required: "This field couldn't be empty",
 };
 
-const AuthPasswordField = ({ register }) => {
+const AuthPasswordField = ({ title, register }) => {
   const [isPassVisible, setIsPassVisible] = useState(false);
 
   const handleChangeVisibility = () => {
@@ -24,7 +24,7 @@ const AuthPasswordField = ({ register }) => {
   return (
     <div className={Styles.container}>
       <label className={Styles.passwordLabel} htmlFor="password">
-        Password:
+        {title || 'Password:'}
       </label>
       <input
         type={isPassVisible ? 'text' : 'password'}

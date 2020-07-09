@@ -4,8 +4,7 @@
   width: 90%;
   margin: 0 auto;
   position: relative;
-  padding-bottom: 2.71vh;
-  padding-top: 3.94vh;
+  padding-bottom: 2.7vh;
 }
 
 .loginField {
@@ -13,7 +12,11 @@
 }
 
 .passwordField {
-  margin-bottom: 24.75vh;
+  margin-bottom: 1.23vh;
+}
+
+.passwordFieldRepeat {
+  margin-bottom: 19.22vh;
 }
 
 .formContainer::after {

@@ -2,9 +2,7 @@ import React from 'react';
 
 const BigCircleDecoration = () => (
   <svg
-    width="450"
-    height="254"
-    viewBox="35 0 375 254"
+    viewBox="0 0 375 254"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
