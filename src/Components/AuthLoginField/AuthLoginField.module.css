@@ -30,3 +30,9 @@
 .loginField::placeholder {
   opacity: 0.2;
 }
+
+.loginUniqueIcon {
+  position: absolute;
+  top: 4.8vh;
+  right: 1.44rem;
+}

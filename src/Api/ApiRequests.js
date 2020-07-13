@@ -17,3 +17,12 @@ export const authorisationRequest = async () => {
     console.log(e);
   }
 };
+
+export const isLoginUnique = async (userLogin) => {
+  try {
+    const isLoginQniqueResault = await axios.post('http://localhost:8080/auth/isUniqueLogin', { login: userLogin });
+    return isLoginQniqueResault;
+  } catch (e) {
+    return false;
+  }
+};

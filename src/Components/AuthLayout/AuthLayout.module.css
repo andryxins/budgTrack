@@ -16,7 +16,7 @@
 .trippleCirclesDecoration {
   height: 29.8vh;
   position: absolute;
-  right: -0.25rem;
+  right: 0;
   top: 5.5vh;
   z-index: 0;
 }

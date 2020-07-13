@@ -6,8 +6,8 @@ export const logIn = createAsyncThunk(
   async (authData, thunkApi) => {
     const { data: userData } = await authorisationRequest();
     if (
-      authData.login === userData.login &&
-      authData.password === userData.password
+      authData.login === userData.login
+      && authData.password === userData.password
     ) {
       return userData;
     }
@@ -22,12 +22,8 @@ const userSlice = createSlice({
   //     getUser: => ({}),
   //   },
   extraReducers: {
-    [logIn.fulfilled]: (state, action) => {
-      return { ...action.payload };
-    },
-    [logIn.rejected]: (state, action) => {
-      return action.payload;
-    },
+    [logIn.fulfilled]: (state, action) => ({ ...action.payload }),
+    [logIn.rejected]: (state, action) => action.payload,
   },
 });
 
