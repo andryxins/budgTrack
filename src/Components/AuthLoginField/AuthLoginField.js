@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { isLoginUnique } from '../../Api/ApiRequests';
 import AuthLoginUniqueIcon from './AuthLoginUniqueIcon/AuthLoginUniqueIcon';
 import Styles from './AuthLoginField.module.css';
@@ -15,7 +16,7 @@ const validationSchema = {
   required: "This field couldn't be empty",
 };
 
-const AuthLoginField = ({ register }) => {
+const AuthLoginField = ({ register, withCheckingLoginIsUnique }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [isLoginUniqueResault, setIsLoginUniqueResault] = useState(null);
 
@@ -35,16 +36,27 @@ const AuthLoginField = ({ register }) => {
       <label className={Styles.loginLabel} htmlFor="login">
         Login:
       </label>
-      <input
-        type="text"
-        onFocus={handleIsChecked}
-        onBlur={handleCheckIsUnique}
-        id="login"
-        name="login"
-        placeholder="misha@subaru.net"
-        className={Styles.loginField}
-        ref={register(validationSchema)}
-      />
+      {withCheckingLoginIsUnique ? (
+        <input
+          type="text"
+          onFocus={handleIsChecked}
+          onBlur={handleCheckIsUnique}
+          id="login"
+          name="login"
+          placeholder="misha@subaru.net"
+          className={Styles.loginField}
+          ref={register(validationSchema)}
+        />
+      ) : (
+        <input
+          type="text"
+          id="login"
+          name="login"
+          placeholder="misha@subaru.net"
+          className={Styles.loginField}
+          ref={register(validationSchema)}
+        />
+      )}
       {isChecked
           && isLoginUniqueResault !== null && (
           <div className={Styles.loginUniqueIcon}>
@@ -53,6 +65,15 @@ const AuthLoginField = ({ register }) => {
       )}
     </div>
   );
+};
+
+AuthLoginField.defaultProps = {
+  withCheckingLoginIsUnique: false,
+};
+
+AuthLoginField.propTypes = {
+  register: PropTypes.func.isRequired,
+  withCheckingLoginIsUnique: PropTypes.bool,
 };
 
 export default AuthLoginField;

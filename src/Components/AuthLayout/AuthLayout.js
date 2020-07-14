@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from './AuthLayout.module.css';
 import Logo from '../Logo/Logo';
 import BackgroundAndContainer from '../BackgroundAndContainer/BackgroundAndContainer';
@@ -21,5 +22,9 @@ const AuthLayout = ({ children }) => (
     </div>
   </BackgroundAndContainer>
 );
+
+AuthLayout.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+};
 
 export default AuthLayout;

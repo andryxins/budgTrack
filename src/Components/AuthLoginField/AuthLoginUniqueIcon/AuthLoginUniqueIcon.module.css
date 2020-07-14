@@ -1,5 +1,14 @@
-.unique {
-    fill:'##41ff07';
-    stroke: '##41ff07';
-    color: '##41ff07';
+.messageUnique,
+.messageNotUnique {
+    margin: 0;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.messageUnique {
+    color: #41ff07;
+}
+
+.messageNotUnique {
+    color: #A41726;
 }

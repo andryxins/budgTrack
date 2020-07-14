@@ -16,6 +16,15 @@
   margin-bottom: 24.75vh;
 }
 
+.errorMessage {
+  position: absolute;
+  left: 50%;
+  top: 24.38vh;
+  width: 100%;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
 .formContainer::after {
   content: '';
   display: block;
