@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Styles from './AuthorisationForm.module.css';
 import AuthLoginField from '../AuthLoginField/AuthLoginField';
@@ -35,6 +36,10 @@ const AuthorisationForm = ({ onlogIn }) => {
       <AuthButton title="LogIn" />
     </form>
   );
+};
+
+AuthorisationForm.propTypes = {
+  onlogIn: PropTypes.func.isRequired,
 };
 
 export default AuthorisationForm;

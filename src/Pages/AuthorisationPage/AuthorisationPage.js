@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthorisationForm from '../../Components/AuthorisationForm/AuthorisationFormContainer';
 import AuthLayout from '../../Components/AuthLayout/AuthLayout';
@@ -23,6 +24,15 @@ const AuthorisationPage = ({ history, user }) => {
       </AuthLayout>
     </main>
   );
+};
+
+AuthorisationPage.defaultProps = {
+  user: null,
+};
+
+AuthorisationPage.propTypes = {
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+  user: PropTypes.objectOf(PropTypes.any),
 };
 
 export default AuthorisationPage;

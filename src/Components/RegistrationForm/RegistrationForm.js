@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Styles from './RegistrationForm.module.css';
 import AuthLoginField from '../AuthLoginField/AuthLoginField';
@@ -39,6 +40,10 @@ const RegistrationForm = ({ onlogIn }) => {
       <AuthButton title="Register" />
     </form>
   );
+};
+
+RegistrationForm.propTypes = {
+  onlogIn: PropTypes.func.isRequired,
 };
 
 export default RegistrationForm;

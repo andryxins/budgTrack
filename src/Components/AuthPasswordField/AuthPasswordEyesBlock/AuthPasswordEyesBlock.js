@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from './AuthPasswordEyesBlock.module.css';
 
 const AuthPasswordEyesBlock = ({ toggled, handleToggle }) => (
@@ -33,5 +34,14 @@ const AuthPasswordEyesBlock = ({ toggled, handleToggle }) => (
     </svg>
   </button>
 );
+
+AuthPasswordEyesBlock.defaultProps = {
+  toggled: false,
+};
+
+AuthPasswordEyesBlock.propTypes = {
+  toggled: PropTypes.bool,
+  handleToggle: PropTypes.func.isRequired,
+};
 
 export default AuthPasswordEyesBlock;

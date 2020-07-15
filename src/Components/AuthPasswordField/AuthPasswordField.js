@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Styles from './AuthPasswordField.module.css';
 import AuthPasswordEyesBlock from './AuthPasswordEyesBlock/AuthPasswordEyesBlock';
 
@@ -24,7 +25,7 @@ const AuthPasswordField = ({ title, register }) => {
   return (
     <div className={Styles.container}>
       <label className={Styles.passwordLabel} htmlFor="password">
-        {title || 'Password:'}
+        {title}
       </label>
       <input
         type={isPassVisible ? 'text' : 'password'}
@@ -42,6 +43,15 @@ const AuthPasswordField = ({ title, register }) => {
       </div>
     </div>
   );
+};
+
+AuthPasswordField.defaultProps = {
+  title: 'Password:',
+};
+
+AuthPasswordField.propTypes = {
+  title: PropTypes.string,
+  register: PropTypes.func.isRequired,
 };
 
 export default AuthPasswordField;

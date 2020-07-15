@@ -3,7 +3,7 @@ import { getUserTransactions } from '../../Api/ApiRequests';
 
 export const getAllTransactions = createAsyncThunk(
   'transactions/getAllTransactions',
-  async thunkApi => {
+  async (thunkApi) => {
     const { data } = await getUserTransactions();
     console.log(data.budgetHistory);
     return data.budgetHistory;
@@ -17,9 +17,7 @@ const transactionsSlice = createSlice({
   //     getAllTransactions: () => ({}),
   //   },
   extraReducers: {
-    [getAllTransactions.fulfilled]: (state, action) => {
-      return [...action.payload];
-    },
+    [getAllTransactions.fulfilled]: (state, action) => [...action.payload],
   },
 });
 
