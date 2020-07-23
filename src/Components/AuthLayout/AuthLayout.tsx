@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Styles from './AuthLayout.module.css';
 import Logo from '../Logo/Logo';
 import BackgroundAndContainer from '../BackgroundAndContainer/BackgroundAndContainer';
 import TrippleCirclesDecoration from '../TrippleCirclesDecoration/TrippleCirclesDecoration';
 import BigCircleDecoration from '../BigCircleDecoration/BigCircleDecoration';
 
-const AuthLayout = ({ children }) => (
+type Props = {
+  children: React.ReactNode;
+};
+
+const AuthLayout: React.FC<Props> = ({ children }: Props) => (
   <BackgroundAndContainer>
     <div className={Styles.container}>
       <div className={Styles.trippleCirclesDecoration}>
@@ -22,9 +25,5 @@ const AuthLayout = ({ children }) => (
     </div>
   </BackgroundAndContainer>
 );
-
-AuthLayout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-};
 
 export default AuthLayout;

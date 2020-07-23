@@ -18,10 +18,18 @@ export const authorisationRequest = async () => {
   }
 };
 
-export const isLoginUnique = async (userLogin) => {
+type isLoginUniqueParam = {
+  login: string;
+};
+
+export const isLoginUnique = async (
+  userLogin: isLoginUniqueParam,
+): Promise<boolean> => {
   try {
-    const isLoginQniqueResault = await axios.post('http://localhost:8080/auth/isUniqueLogin', { login: userLogin });
-    return isLoginQniqueResault;
+    await axios.post('http://localhost:8080/auth/isUniqueLogin', {
+      userLogin,
+    });
+    return true;
   } catch (e) {
     return false;
   }

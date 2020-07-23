@@ -15,7 +15,12 @@ const validationSchema = {
   required: "This field couldn't be empty",
 };
 
-const AuthPasswordField = ({ title, register }) => {
+type Props = {
+  title?: string;
+  register: Function;
+};
+
+const AuthPasswordField: React.FC<Props> = ({ title, register }: Props) => {
   const [isPassVisible, setIsPassVisible] = useState(false);
 
   const handleChangeVisibility = () => {

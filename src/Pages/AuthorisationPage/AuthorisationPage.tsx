@@ -1,11 +1,20 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthorisationForm from '../../Components/AuthorisationForm/AuthorisationFormContainer';
 import AuthLayout from '../../Components/AuthLayout/AuthLayout';
 import Styles from './AuthorisationPage.module.css';
 
-const AuthorisationPage = ({ history, user }) => {
+type Props = {
+  history: {
+    replace: Function;
+  };
+  user: {} | null;
+};
+
+const AuthorisationPage: React.FC<Props> = ({
+  history,
+  user = null,
+}: Props) => {
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (user) return history.replace('/');
@@ -24,15 +33,6 @@ const AuthorisationPage = ({ history, user }) => {
       </AuthLayout>
     </main>
   );
-};
-
-AuthorisationPage.defaultProps = {
-  user: null,
-};
-
-AuthorisationPage.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-  user: PropTypes.objectOf(PropTypes.any),
 };
 
 export default AuthorisationPage;

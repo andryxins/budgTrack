@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Styles from './AuthButton.module.css';
 
-const AuthButton = ({ title }) => (
+type Props = {
+  title: string;
+};
+
+const AuthButton: React.FC<Props> = ({ title }: Props) => (
   <button type="submit" className={Styles.button}>
     {title}
   </button>
 );
-
-AuthButton.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default AuthButton;

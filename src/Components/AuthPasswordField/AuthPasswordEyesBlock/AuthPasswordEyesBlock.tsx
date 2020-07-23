@@ -1,8 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Styles from './AuthPasswordEyesBlock.module.css';
 
-const AuthPasswordEyesBlock = ({ toggled, handleToggle }) => (
+type Props = {
+  toggled: boolean;
+  handleToggle: () => void;
+};
+
+const AuthPasswordEyesBlock: React.FC<Props> = ({
+  toggled,
+  handleToggle,
+}: Props) => (
   <button type="button" onClick={handleToggle} className={Styles.container}>
     <svg
       width="24"
@@ -34,14 +41,5 @@ const AuthPasswordEyesBlock = ({ toggled, handleToggle }) => (
     </svg>
   </button>
 );
-
-AuthPasswordEyesBlock.defaultProps = {
-  toggled: false,
-};
-
-AuthPasswordEyesBlock.propTypes = {
-  toggled: PropTypes.bool,
-  handleToggle: PropTypes.func.isRequired,
-};
 
 export default AuthPasswordEyesBlock;

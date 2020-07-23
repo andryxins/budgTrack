@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Styles from './RegistrationForm.module.css';
 import AuthLoginField from '../AuthLoginField/AuthLoginField';
@@ -7,11 +6,13 @@ import AuthPasswordField from '../AuthPasswordField/AuthPasswordField';
 import AuthButton from '../AuthButton/AuthButton';
 import AuthErrorMessage from '../AuthErrorMessage/AuthErrorMessage';
 
-const RegistrationForm = ({ onlogIn }) => {
+type Props = {};
+
+const RegistrationForm: React.FC<Props> = () => {
   const { register, handleSubmit, errors } = useForm();
 
   return (
-    <form onSubmit={handleSubmit(onlogIn)} className={Styles.formContainer}>
+    <form onSubmit={handleSubmit(console.log)} className={Styles.formContainer}>
       <div className={Styles.loginField}>
         <AuthLoginField register={register} withCheckingLoginIsUnique />
       </div>
@@ -24,26 +25,20 @@ const RegistrationForm = ({ onlogIn }) => {
         <AuthPasswordField title="Confirm password" register={register} />
       </div>
 
-      {errors.login || errors.password
-        ? (
-          <div className={Styles.errorMessage}>
-            <AuthErrorMessage
-              message={
-              (errors.login && errors.login.message)
-              || (errors.password && errors.password.message)
-              }
-            />
-          </div>
-        )
-        : null}
+      {errors.login || errors.password ? (
+        <div className={Styles.errorMessage}>
+          <AuthErrorMessage
+            message={
+              (errors.login && errors.login.message) ||
+              (errors.password && errors.password.message)
+            }
+          />
+        </div>
+      ) : null}
 
       <AuthButton title="Register" />
     </form>
   );
-};
-
-RegistrationForm.propTypes = {
-  onlogIn: PropTypes.func.isRequired,
 };
 
 export default RegistrationForm;

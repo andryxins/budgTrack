@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TrippleCirclesDecoration = () => (
+const TrippleCirclesDecoration: React.FC = () => (
   <svg
     width="205"
     height="242"

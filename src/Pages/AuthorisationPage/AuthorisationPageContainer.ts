@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AuthorisationPage from './AuthorisationPage';
 
-const MSTP = state => ({
+const MSTP = (state: any) => ({
   user: state.user,
 });
 

@@ -16,17 +16,34 @@ const validationSchema = {
   required: "This field couldn't be empty",
 };
 
-const AuthLoginField = ({ register, withCheckingLoginIsUnique }) => {
-  const [isChecked, setIsChecked] = useState(false);
-  const [isLoginUniqueResault, setIsLoginUniqueResault] = useState(null);
+type Props = {
+  register: Function;
+  withCheckingLoginIsUnique?: boolean;
+};
+
+type isChecked = boolean;
+type isLoginUniqueResault = boolean | null;
+
+const AuthLoginField: React.FC<Props> = ({
+  register,
+  withCheckingLoginIsUnique,
+}: Props) => {
+  const [isChecked, setIsChecked] = useState<isChecked>(false);
+  const [isLoginUniqueResault, setIsLoginUniqueResault] = useState<
+    isLoginUniqueResault
+  >(null);
 
   const handleIsChecked = async () => {
     setIsChecked(true);
   };
 
-  const handleCheckIsUnique = async ({ target }) => {
+  const handleCheckIsUnique = async ({
+    target,
+  }: React.ChangeEvent<HTMLInputElement>) => {
     if (target.value.length < 1) return;
-    const isUnique = await isLoginUnique({ login: target.value });
+    const isUnique = await isLoginUnique({
+      login: target.value,
+    });
     setIsLoginUniqueResault(isUnique);
   };
 
@@ -57,23 +74,13 @@ const AuthLoginField = ({ register, withCheckingLoginIsUnique }) => {
           ref={register(validationSchema)}
         />
       )}
-      {isChecked
-          && isLoginUniqueResault !== null && (
-          <div className={Styles.loginUniqueIcon}>
-            <AuthLoginUniqueIcon type={isLoginUniqueResault} />
-          </div>
+      {isChecked && isLoginUniqueResault !== null && (
+        <div className={Styles.loginUniqueIcon}>
+          <AuthLoginUniqueIcon type={isLoginUniqueResault} />
+        </div>
       )}
     </div>
   );
-};
-
-AuthLoginField.defaultProps = {
-  withCheckingLoginIsUnique: false,
-};
-
-AuthLoginField.propTypes = {
-  register: PropTypes.func.isRequired,
-  withCheckingLoginIsUnique: PropTypes.bool,
 };
 
 export default AuthLoginField;

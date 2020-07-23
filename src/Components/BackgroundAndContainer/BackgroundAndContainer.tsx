@@ -2,18 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Styles from './BackgroundAndContainer.module.css';
 
-const BackgroundAndContainer = ({ children }) => (
+type Props = {
+  children: React.ReactNodeArray | React.ReactNode;
+};
+
+const BackgroundAndContainer: React.FC<Props> = ({ children }: Props) => (
   <div className={Styles.backgroundColor}>
     <div className={Styles.container}>{children}</div>
   </div>
 );
-
-BackgroundAndContainer.defaultProps = {
-  children: null,
-};
-
-BackgroundAndContainer.propTypes = {
-  children: PropTypes.node,
-};
 
 export default BackgroundAndContainer;
