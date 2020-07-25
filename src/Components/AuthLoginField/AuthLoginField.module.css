@@ -1,9 +1,9 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
-
   z-index: 99999;
 }
 
@@ -20,6 +20,12 @@
   border: 1px solid transparent;
   border-radius: 0.63rem;
   padding: 1.73vh 2.46vh;
+  outline: none;
+}
+
+.loginFieldError {
+  composes: loginField;
+  border: 1px solid red;
 }
 
 .loginLabel {
@@ -37,4 +43,10 @@
   align-items: center;
   top: 4.8vh;
   right: 1.44rem;
+}
+
+.ErrorIcon {
+  position: absolute;
+  top: 4.31vh;
+  right: 0.87rem;
 }

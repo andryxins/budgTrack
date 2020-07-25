@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { isLoginUnique } from '../../Api/ApiRequests';
 import AuthLoginUniqueIcon from './AuthLoginUniqueIcon/AuthLoginUniqueIcon';
+import ErrorIcon from '../ErrorIcon/ErrorIcon';
 import Styles from './AuthLoginField.module.css';
 
 const validationSchema = {
-  minLength: {
-    value: 3,
-    message: "Hey!It's too short!",
-  },
-  maxLength: {
-    value: 16,
-    message: "Hey!It's too long!",
+  pattern: {
+    value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+    message: "It's must be valid Email",
   },
   required: "This field couldn't be empty",
 };
 
 type Props = {
   register: Function;
+  error?: boolean;
   withCheckingLoginIsUnique?: boolean;
+  name: string;
 };
 
 type isChecked = boolean;
@@ -27,6 +25,8 @@ type isLoginUniqueResault = boolean | null;
 const AuthLoginField: React.FC<Props> = ({
   register,
   withCheckingLoginIsUnique,
+  error,
+  name,
 }: Props) => {
   const [isChecked, setIsChecked] = useState<isChecked>(false);
   const [isLoginUniqueResault, setIsLoginUniqueResault] = useState<
@@ -58,25 +58,30 @@ const AuthLoginField: React.FC<Props> = ({
           type="text"
           onFocus={handleIsChecked}
           onBlur={handleCheckIsUnique}
-          id="login"
-          name="login"
+          id={name}
+          name={name}
           placeholder="misha@subaru.net"
-          className={Styles.loginField}
+          className={error ? Styles.loginFieldError : Styles.loginField}
           ref={register(validationSchema)}
         />
       ) : (
         <input
           type="text"
-          id="login"
-          name="login"
+          id={name}
+          name={name}
           placeholder="misha@subaru.net"
-          className={Styles.loginField}
+          className={error ? Styles.loginFieldError : Styles.loginField}
           ref={register(validationSchema)}
         />
       )}
-      {isChecked && isLoginUniqueResault !== null && (
+      {!error && isChecked && isLoginUniqueResault !== null && (
         <div className={Styles.loginUniqueIcon}>
           <AuthLoginUniqueIcon type={isLoginUniqueResault} />
+        </div>
+      )}
+      {error && (
+        <div className={Styles.ErrorIcon}>
+          <ErrorIcon />
         </div>
       )}
     </div>

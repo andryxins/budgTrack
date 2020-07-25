@@ -2,11 +2,11 @@ import React from 'react';
 import Styles from './AuthErrorMessage.module.css';
 
 type Props = {
-  message: string;
+  messageText?: string | {};
 };
 
-const AuthErrorMessage: React.FC<Props> = ({ message }: Props) => (
-  <p className={Styles.message}>{message}</p>
+const AuthErrorMessage: React.FC<Props> = ({ messageText }: Props) => (
+  <p className={Styles.message}>{messageText}</p>
 );
 
 export default AuthErrorMessage;

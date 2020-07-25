@@ -8,7 +8,7 @@ type Props = {
 const HomePage: React.FC<Props> = ({ user, history }: Props) => {
   useEffect(() => {
     if (!user) return history.replace('/authorisation');
-  }, [user]);
+  }, [user, history]);
 
   return <p>HomePage</p>;
 };

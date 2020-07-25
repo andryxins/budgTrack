@@ -26,9 +26,7 @@ export const isLoginUnique = async (
   userLogin: isLoginUniqueParam,
 ): Promise<boolean> => {
   try {
-    await axios.post('http://localhost:8080/auth/isUniqueLogin', {
-      userLogin,
-    });
+    await axios.post('http://localhost:8080/auth/isUniqueLogin', userLogin);
     return true;
   } catch (e) {
     return false;

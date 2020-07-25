@@ -1,30 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { authorisationRequest } from '../../Api/ApiRequests';
 
-export const logIn = createAsyncThunk(
-  'user/logInInfoStatus',
-  async (authData, thunkApi) => {
-    const { data: userData } = await authorisationRequest();
-    if (
-      authData.login === userData.login
-      && authData.password === userData.password
-    ) {
-      return userData;
-    }
-    return thunkApi.rejectWithValue(null);
-  },
-);
+type SliceState = null | {};
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: null,
-  //   reducer: {
-  //     getUser: => ({}),
-  //   },
-  extraReducers: {
-    [logIn.fulfilled]: (state, action) => ({ ...action.payload }),
-    [logIn.rejected]: (state, action) => action.payload,
-  },
+  initialState: null as SliceState,
+  reducers: {},
+  // extraReducers: {
+  //   [logIn.fulfilled]: (state, action) => ({ ...action.payload }),
+  //   [logIn.rejected]: (state, action) => action.payload,
+  // },
 });
 
 export default userSlice;

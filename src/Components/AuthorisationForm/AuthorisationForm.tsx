@@ -8,23 +8,43 @@ import AuthErrorMessage from '../AuthErrorMessage/AuthErrorMessage';
 
 type Props = {};
 
+type inputTypes = {
+  login: string;
+  password: string;
+};
+
 const AuthorisationForm: React.FC<Props> = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm<inputTypes>();
+
+  const onHandleSubmit = (data: inputTypes): void => {
+    console.log(data);
+  };
 
   return (
-    <form onSubmit={handleSubmit(console.log)} className={Styles.formContainer}>
+    <form
+      onSubmit={handleSubmit(onHandleSubmit)}
+      className={Styles.formContainer}
+    >
       <div className={Styles.loginField}>
-        <AuthLoginField register={register} />
+        <AuthLoginField
+          name="login"
+          error={errors && errors.login ? true : false}
+          register={register}
+        />
       </div>
 
       <div className={Styles.passwordField}>
-        <AuthPasswordField register={register} />
+        <AuthPasswordField
+          name="password"
+          error={errors && errors.password ? true : false}
+          register={register}
+        />
       </div>
 
       {errors.login || errors.password ? (
         <div className={Styles.errorMessage}>
           <AuthErrorMessage
-            message={
+            messageText={
               (errors.login && errors.login.message) ||
               (errors.password && errors.password.message)
             }
